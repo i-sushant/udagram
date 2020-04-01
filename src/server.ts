@@ -36,7 +36,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       filteredimage = await filterImageFromURL(URL);
       res.sendFile(filteredimage, () => deleteLocalFiles([filteredimage]))
     } catch(err){
-      res.status(400).send("Error occured");
+      res.status(400).send({
+        error : err
+      });
     }
   })
   //! END @TODO1
