@@ -35,7 +35,7 @@ import {Request, Response} from 'express'
       const filteredimage = await filterImageFromURL(URL);
       res.status(200).sendFile(filteredimage, () => deleteLocalFiles([filteredimage]));
     } catch (err) {
-      res.status(400).send("Error occured");
+      res.status(422).send("Error occured");
     }
   });
   //! END @TODO1
