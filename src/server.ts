@@ -28,8 +28,8 @@ import {Request, Response} from 'express'
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
-  app.get("/filteredimage/image_url", async (req: Request, res: Response) => {
-    const { URL } = req.query;
+  app.get("/filteredimage", async (req: Request, res: Response) => {
+    const URL = req.query.image_url;
     if (!URL) return res.status(400).send("URL is required");
     try {
       const filteredimage = await filterImageFromURL(URL);
